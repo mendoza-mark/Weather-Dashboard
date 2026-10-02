@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Weather Dashboard</span>
+            <button id="sidebarClose" class="sidebar-close" aria-label="Close menu">✕</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-view="home">🏠 Home</button>
+            <button class="nav-item" data-view="about">ℹ️ About</button>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="pinned-section">
+            <p class="pinned-title">📌 Pinned Cities</p>
+            <div id="pinnedList" class="pinned-list">
+                <p class="pinned-empty">No pinned cities yet.</p>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <p>Made by Mark Mendoza</p>
+        </div>
+    </aside>
+
+    <main id="mainContent" class="main-content">
+
+        <section id="homeView" class="view active">
+            <div class="hero">
+                <h1 class="app-title">Weather Dashboard</h1>
+                <p class="app-subtitle">Check live weather, anywhere, instantly.</p>
+            </div>
+
+            <div class="container">
+                <div class="search-bar">
+                    <div class="input-wrapper">
+                        <input type="text" id="cityInput" placeholder="Enter a city name" autocomplete="off">
+                        <div id="suggestions" class="suggestions"></div>
+                    </div>
+                    <button id="searchBtn">Search</button>
+                </div>
+
+                <button id="locationBtn" class="location-btn">📍 Use my current location</button>
+
+                <div id="weatherResult">
+                    <p class="placeholder-text">Search for a city to see the weather.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutView" class="view">
+            <div class="about-card">
+                <h1 class="about-name">Mark Droeid Mendoza</h1>
+                <p class="about-role">Solo Developer</p>
+                <p class="about-bio">
+                    Hi, I'm Mark — a college student who loves turning ideas into
+                    something real. I enjoy coding and I'm still learning something
+                    new every day. This Weather Dashboard started as a personal side
+                    project to practice real-world web development, built entirely
+                    on my own.
+                </p>
+                <a href="https://github.com/mendoza-mark" target="_blank" rel="noopener" class="about-github">
+                    🔗 github.com/mendoza-mark
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
